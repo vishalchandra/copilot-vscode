@@ -1,11 +1,11 @@
 {
-  "name": "@glue/copilot",
+  "name": "@fifo/copilot",
   "version": "0.0.0",
   "private": true,
   "scripts": {},
   "devDependencies": {},
   "dependencies": {
-    "@rubberduck/extension": "*",
-    "@rubberduck/webview": "*"
+    "@fifo/extension": "*",
+    "@fifo/webview": "*"
   }
 }

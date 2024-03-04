@@ -1,4 +1,4 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@fifo/common";
 import Handlebars from "handlebars";
 import * as vscode from "vscode";
 import { AIClient } from "../ai/AIClient";
@@ -7,7 +7,7 @@ import { DiffEditorManager } from "../diff/DiffEditorManager";
 import { DiffData } from "./DiffData";
 import { resolveVariables } from "./input/resolveVariables";
 import { executeRetrievalAugmentation } from "./retrieval-augmentation/executeRetrievalAugmentation";
-import { Prompt, RubberduckTemplate } from "./template/RubberduckTemplate";
+import { Prompt, FIFOCoPilotTemplate } from "./template/FIFOCoPilotTemplate";
 
 Handlebars.registerHelper({
   eq: (v1, v2) => v1 === v2,
@@ -28,7 +28,7 @@ export class Conversation {
 
   protected readonly initVariables: Record<string, unknown>;
 
-  private readonly template: RubberduckTemplate;
+  private readonly template: FIFOCoPilotTemplate;
 
   private temporaryEditorContent: string | undefined;
   private temporaryEditorDocument: vscode.TextDocument | undefined;
@@ -52,7 +52,7 @@ export class Conversation {
     initVariables: Record<string, unknown>;
     ai: AIClient;
     updateChatPanel: () => Promise<void>;
-    template: RubberduckTemplate;
+    template: FIFOCoPilotTemplate;
     diffEditorManager: DiffEditorManager;
     diffData: DiffData | undefined;
   }) {
@@ -428,7 +428,7 @@ export class Conversation {
       const tab = allTabs.find((tab) => {
         return (
           (tab.input as any).viewType ===
-          `mainThreadWebview-rubberduck.diff.${this.id}`
+          `mainThreadWebview-fifo.diff.${this.id}`
         );
       });
 

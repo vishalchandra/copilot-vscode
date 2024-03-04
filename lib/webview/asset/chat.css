@@ -1,5 +1,5 @@
 :root {
-  --rubberduck-container-padding: calc(var(--container-padding) / 2);
+  --fifo-container-padding: calc(var(--container-padding) / 2);
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 
 .start-chat,
 .enter-api-key {
-  padding: var(--rubberduck-container-padding);
+  padding: var(--fifo-container-padding);
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -50,7 +50,7 @@ body {
 }
 
 .conversation > .instruction-refinement {
-  margin: var(--rubberduck-container-padding);
+  margin: var(--fifo-container-padding);
 }
 .conversation > .instruction-refinement > .chat-input {
   margin: 0;
@@ -64,7 +64,7 @@ body {
 .conversation > .footer {
   color: var(--vscode-disabledForeground);
 
-  padding: var(--rubberduck-container-padding);
+  padding: var(--fifo-container-padding);
   padding-top: 0;
   width: 100%;
 
@@ -73,7 +73,7 @@ body {
 }
 
 .conversation.collapsed {
-  padding: var(--rubberduck-container-padding);
+  padding: var(--fifo-container-padding);
   color: var(--vscode-disabledForeground);
   cursor: pointer;
 }
@@ -125,7 +125,7 @@ body {
 .chat-input {
   display: grid;
   margin-top: 20px;
-  margin: var(--rubberduck-container-padding);
+  margin: var(--fifo-container-padding);
 
   border: 1px solid var(--vscode-input-border);
   border-radius: 5px;
@@ -178,8 +178,8 @@ body {
 }
 
 .message {
-  margin-left: var(--rubberduck-container-padding);
-  margin-right: var(--rubberduck-container-padding);
+  margin-left: var(--fifo-container-padding);
+  margin-right: var(--fifo-container-padding);
   margin-bottom: 10px;
 }
 
@@ -195,8 +195,8 @@ body {
 }
 
 .message pre {
-  border-radius: var(--rubberduck-container-padding);
-  padding: var(--rubberduck-container-padding);
+  border-radius: var(--fifo-container-padding);
+  padding: var(--fifo-container-padding);
   background-color: var(--vscode-editor-wordHighlightStrongBackground);
 
   color: var(--vscode-editor-foreground);
@@ -224,8 +224,8 @@ body {
 }
 
 .message.error {
-  margin: var(--rubberduck-container-padding);
-  padding: var(--rubberduck-container-padding);
+  margin: var(--fifo-container-padding);
+  padding: var(--fifo-container-padding);
   border: 1px solid;
   border-color: var(--vscode-errorForeground);
   color: var(--vscode-errorForeground);
@@ -251,14 +251,14 @@ body {
 
 .error-title {
   display: block;
-  padding-bottom: var(--rubberduck-container-padding);
+  padding-bottom: var(--fifo-container-padding);
   font-size: 110%;
   text-decoration: underline;
 }
 
 .error-buttons {
   display: flex;
-  gap: var(--rubberduck-container-padding);
+  gap: var(--fifo-container-padding);
 }
 
 .error-retry,
@@ -266,7 +266,7 @@ body {
   display: block;
   cursor: pointer;
   text-align: center;
-  margin-top: var(--rubberduck-container-padding);
+  margin-top: var(--fifo-container-padding);
 }
 
 button.error-retry,

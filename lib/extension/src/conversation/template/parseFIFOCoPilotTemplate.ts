@@ -1,15 +1,15 @@
 import { marked } from "marked";
 import secureJSON from "secure-json-parse";
 import {
-  RubberduckTemplate,
-  rubberduckTemplateSchema,
+  FIFOCoPilotTemplate,
+  fifoTemplateSchema,
   Prompt,
-} from "./RubberduckTemplate";
+} from "./FIFOCoPilotTemplate";
 
-export type RubberduckTemplateParseResult =
+export type FIFOCoPilotTemplateParseResult =
   | {
       type: "success";
-      template: RubberduckTemplate;
+      template: FIFOCoPilotTemplate;
     }
   | {
       type: "error";
@@ -60,10 +60,10 @@ export const extractNamedCodeSnippets = (
   return codeSnippets;
 };
 
-export function parseRubberduckTemplateOrThrow(
+export function parseFIFOCoPilotTemplateOrThrow(
   templateAsRdtMarkdown: string
-): RubberduckTemplate {
-  const parseResult = parseRubberduckTemplate(templateAsRdtMarkdown);
+): FIFOCoPilotTemplate {
+  const parseResult = parseFIFOCoPilotTemplate(templateAsRdtMarkdown);
 
   if (parseResult.type === "error") {
     throw parseResult.error;
@@ -72,17 +72,15 @@ export function parseRubberduckTemplateOrThrow(
   return parseResult.template;
 }
 
-export function parseRubberduckTemplate(
+export function parseFIFOCoPilotTemplate(
   templateAsRdtMarkdown: string
-): RubberduckTemplateParseResult {
+): FIFOCoPilotTemplateParseResult {
   try {
     const namedCodeSnippets = extractNamedCodeSnippets(templateAsRdtMarkdown);
 
     const templateText = namedCodeSnippets.get("json conversation-template");
 
-    const template = rubberduckTemplateSchema.parse(
-      secureJSON.parse(templateText)
-    );
+    const template = fifoTemplateSchema.parse(secureJSON.parse(templateText));
 
     if (template.initialMessage != null) {
       namedCodeSnippets.resolveTemplate(
@@ -95,7 +93,7 @@ export function parseRubberduckTemplate(
 
     return {
       type: "success",
-      template: template as RubberduckTemplate,
+      template: template as FIFOCoPilotTemplate,
     };
   } catch (error) {
     return {

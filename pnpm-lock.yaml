@@ -53,10 +53,10 @@ importers:
 
   app/vscode:
     dependencies:
-      '@rubberduck/extension':
+      '@fifo/extension':
         specifier: '*'
         version: link:../../lib/extension
-      '@rubberduck/webview':
+      '@fifo/webview':
         specifier: '*'
         version: link:../../lib/webview
 
@@ -68,7 +68,7 @@ importers:
 
   lib/extension:
     dependencies:
-      '@rubberduck/common':
+      '@fifo/common':
         specifier: '*'
         version: link:../common
       handlebars:
@@ -102,7 +102,7 @@ importers:
 
   lib/webview:
     dependencies:
-      '@rubberduck/common':
+      '@fifo/common':
         specifier: '*'
         version: link:../common
       prismjs:

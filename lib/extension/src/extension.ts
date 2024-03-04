@@ -14,16 +14,16 @@ export const activate = async (context: vscode.ExtensionContext) => {
     secretStorage: context.secrets,
   });
 
-  const mainOutputChannel = vscode.window.createOutputChannel("Rubberduck");
+  const mainOutputChannel = vscode.window.createOutputChannel("FIFOCoPilot");
   const indexOutputChannel =
-    vscode.window.createOutputChannel("Rubberduck Index");
+    vscode.window.createOutputChannel("FIFOCoPilot Index");
 
   const vscodeLogger = new LoggerUsingVSCodeOutput({
     outputChannel: mainOutputChannel,
     level: getVSCodeLogLevel(),
   });
   vscode.workspace.onDidChangeConfiguration((event) => {
-    if (event.affectsConfiguration("rubberduck.logger.level")) {
+    if (event.affectsConfiguration("fifo.logger.level")) {
       vscodeLogger.setLevel(getVSCodeLogLevel());
     }
   });
@@ -66,46 +66,42 @@ export const activate = async (context: vscode.ExtensionContext) => {
   );
 
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider("rubberduck.chat", chatPanel),
+    vscode.window.registerWebviewViewProvider("fifo.chat", chatPanel),
     vscode.commands.registerCommand(
-      "rubberduck.enterOpenAIApiKey",
+      "fifo.enterOpenAIApiKey",
       apiKeyManager.enterOpenAIApiKey.bind(apiKeyManager)
     ),
-    vscode.commands.registerCommand(
-      "rubberduck.clearOpenAIApiKey",
-      async () => {
-        await apiKeyManager.clearOpenAIApiKey();
-        vscode.window.showInformationMessage("OpenAI API key cleared.");
-      }
+    vscode.commands.registerCommand("fifo.clearOpenAIApiKey", async () => {
+      await apiKeyManager.clearOpenAIApiKey();
+      vscode.window.showInformationMessage("OpenAI API key cleared.");
+    }),
+
+    vscode.commands.registerCommand("fifo.startConversation", (templateId) =>
+      chatController.createConversation(templateId)
     ),
 
-    vscode.commands.registerCommand(
-      "rubberduck.startConversation",
-      (templateId) => chatController.createConversation(templateId)
-    ),
-
-    vscode.commands.registerCommand("rubberduck.diagnoseErrors", () => {
+    vscode.commands.registerCommand("fifo.diagnoseErrors", () => {
       chatController.createConversation("diagnose-errors");
     }),
-    vscode.commands.registerCommand("rubberduck.explainCode", () => {
+    vscode.commands.registerCommand("fifo.explainCode", () => {
       chatController.createConversation("explain-code");
     }),
-    vscode.commands.registerCommand("rubberduck.findBugs", () => {
+    vscode.commands.registerCommand("fifo.findBugs", () => {
       chatController.createConversation("find-bugs");
     }),
-    vscode.commands.registerCommand("rubberduck.generateCode", () => {
+    vscode.commands.registerCommand("fifo.generateCode", () => {
       chatController.createConversation("generate-code");
     }),
-    vscode.commands.registerCommand("rubberduck.generateUnitTest", () => {
+    vscode.commands.registerCommand("fifo.generateUnitTest", () => {
       chatController.createConversation("generate-unit-test");
     }),
-    vscode.commands.registerCommand("rubberduck.startChat", () => {
+    vscode.commands.registerCommand("fifo.startChat", () => {
       chatController.createConversation("chat-en");
     }),
-    vscode.commands.registerCommand("rubberduck.editCode", () => {
+    vscode.commands.registerCommand("fifo.editCode", () => {
       chatController.createConversation("edit-code");
     }),
-    vscode.commands.registerCommand("rubberduck.startCustomChat", async () => {
+    vscode.commands.registerCommand("fifo.startCustomChat", async () => {
       const items = conversationTypesProvider
         .getConversationTypes()
         .map((conversationType) => ({
@@ -133,27 +129,27 @@ export const activate = async (context: vscode.ExtensionContext) => {
 
       await chatController.createConversation(result.id);
     }),
-    vscode.commands.registerCommand("rubberduck.touchBar.startChat", () => {
+    vscode.commands.registerCommand("fifo.touchBar.startChat", () => {
       chatController.createConversation("chat-en");
     }),
-    vscode.commands.registerCommand("rubberduck.showChatPanel", async () => {
+    vscode.commands.registerCommand("fifo.showChatPanel", async () => {
       await chatController.showChatPanel();
     }),
-    vscode.commands.registerCommand("rubberduck.getStarted", async () => {
+    vscode.commands.registerCommand("fifo.getStarted", async () => {
       await vscode.commands.executeCommand("workbench.action.openWalkthrough", {
-        category: `rubberduck.rubberduck-vscode#rubberduck`,
+        category: `fifo.fifo-vscode#fifo`,
       });
     }),
-    vscode.commands.registerCommand("rubberduck.reloadTemplates", async () => {
+    vscode.commands.registerCommand("fifo.reloadTemplates", async () => {
       await conversationTypesProvider.loadConversationTypes();
-      vscode.window.showInformationMessage("Rubberduck templates reloaded.");
+      vscode.window.showInformationMessage("FIFOCoPilot templates reloaded.");
     }),
 
-    vscode.commands.registerCommand("rubberduck.showLogs", () => {
+    vscode.commands.registerCommand("fifo.showLogs", () => {
       mainOutputChannel.show(true);
     }),
 
-    vscode.commands.registerCommand("rubberduck.indexRepository", () => {
+    vscode.commands.registerCommand("fifo.indexRepository", () => {
       indexRepository({
         ai: ai,
         outputChannel: indexOutputChannel,

@@ -1,13 +1,13 @@
 import * as vscode from "vscode";
-import { RubberduckTemplateLoadResult } from "./RubberduckTemplateLoadResult";
-import { parseRubberduckTemplate } from "./parseRubberduckTemplate";
+import { FIFOCoPilotTemplateLoadResult } from "./FIFOCoPilotTemplateLoadResult";
+import { parseFIFOCoPilotTemplate } from "./parseFIFOCoPilotTemplate";
 import { readFileContent } from "../../vscode/readFileContent";
 
 export const loadConversationFromFile = async (
   file: vscode.Uri
-): Promise<RubberduckTemplateLoadResult> => {
+): Promise<FIFOCoPilotTemplateLoadResult> => {
   try {
-    const parseResult = parseRubberduckTemplate(await readFileContent(file));
+    const parseResult = parseFIFOCoPilotTemplate(await readFileContent(file));
 
     if (parseResult.type === "error") {
       return {

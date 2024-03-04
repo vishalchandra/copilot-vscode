@@ -1,10 +1,11 @@
 {
-  "publisher": "rubberduck",
-  "name": "rubberduck-vscode",
-  "version": "1.21.0",
-  "displayName": "Rubberduck - ChatGPT for Visual Studio Code",
+  "publisher": "FIFO",
+  "name": "fifo-copilot",
+  "version": "0.0.3",
+  "displayName": "FIFO CoPilot",
   "description": "Generate code, edit code, explain code, generate tests, find bugs, diagnose errors, and even create your own conversation templates.",
   "keywords": [
+    "FIFO",
     "ai",
     "chatgpt",
     "gpt",
@@ -32,9 +33,9 @@
     "node": ">=18",
     "vscode": "^1.72.0"
   },
-  "homepage": "https://github.com/rubberduck-ai/rubberduck-vscode",
-  "repository": "https://github.com/rubberduck-ai/rubberduck-vscode",
-  "bugs": "https://github.com/rubberduck-ai/rubberduck-vscode/issues",
+  "homepage": "https://github.com/fifo-ai/fifo-vscode",
+  "repository": "https://github.com/fifo-ai/fifo-vscode",
+  "bugs": "https://github.com/fifo-ai/fifo-vscode/issues",
   "extensionKind": [
     "workspace"
   ],
@@ -45,157 +46,157 @@
   "contributes": {
     "commands": [
       {
-        "command": "rubberduck.enterOpenAIApiKey",
-        "category": "Rubberduck",
+        "command": "fifo.enterOpenAIApiKey",
+        "category": "FIFO",
         "title": "Enter OpenAI API key"
       },
       {
-        "command": "rubberduck.clearOpenAIApiKey",
-        "category": "Rubberduck",
+        "command": "fifo.clearOpenAIApiKey",
+        "category": "FIFO",
         "title": "Clear OpenAI API key"
       },
       {
-        "command": "rubberduck.startChat",
+        "command": "fifo.startChat",
         "title": "Start Chat 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "fifo.editCode",
         "title": "Edit Code 🖊️",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(edit)"
       },
       {
-        "command": "rubberduck.explainCode",
+        "command": "fifo.explainCode",
         "title": "Explain Code 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "fifo.generateCode",
         "title": "Generate Code 🪄",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(wand)"
       },
       {
-        "command": "rubberduck.generateUnitTest",
+        "command": "fifo.generateUnitTest",
         "title": "Generate Unit Test 🪄",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(beaker)"
       },
       {
-        "command": "rubberduck.diagnoseErrors",
+        "command": "fifo.diagnoseErrors",
         "title": "Diagnose Errors 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(search-fuzzy)"
       },
       {
-        "command": "rubberduck.findBugs",
+        "command": "fifo.findBugs",
         "title": "Find Bugs 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(bug)"
       },
       {
-        "command": "rubberduck.startCustomChat",
+        "command": "fifo.startCustomChat",
         "title": "Start Custom Chat… 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(comment-draft)"
       },
       {
-        "command": "rubberduck.touchBar.startChat",
-        "category": "Rubberduck",
+        "command": "fifo.touchBar.startChat",
+        "category": "FIFO",
         "title": "💬"
       },
       {
-        "command": "rubberduck.showChatPanel",
+        "command": "fifo.showChatPanel",
         "title": "Show Chat Panel 💬",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(comment-discussion)"
       },
       {
-        "command": "rubberduck.getStarted",
+        "command": "fifo.getStarted",
         "title": "Get Started",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(question)"
       },
       {
-        "command": "rubberduck.reloadTemplates",
+        "command": "fifo.reloadTemplates",
         "title": "Reload Templates",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(sync)"
       },
       {
-        "command": "rubberduck.showLogs",
+        "command": "fifo.showLogs",
         "title": "Show Logs",
-        "category": "Rubberduck",
+        "category": "FIFO",
         "icon": "$(output)"
       },
       {
-        "command": "rubberduck.indexRepository",
+        "command": "fifo.indexRepository",
         "title": "Index Repository",
-        "category": "Rubberduck",
-        "enablement": "config.rubberduck.indexRepository.enabled"
+        "category": "FIFO",
+        "enablement": "config.fifo.indexRepository.enabled"
       }
     ],
     "configuration": {
-      "title": "Rubberduck",
+      "title": "FIFO CoPilot",
       "properties": {
-        "rubberduck.syntaxHighlighting.useVisualStudioCodeColors": {
+        "fifo.syntaxHighlighting.useVisualStudioCodeColors": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Use the Visual Studio Code Theme colors for syntax highlighting in the diff viewer. Might not work with all themes. Only applies to newly opened diffs.",
           "scope": "application"
         },
-        "rubberduck.indexRepository.enabled": {
+        "fifo.indexRepository.enabled": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Enable the command to index your repository and give more context to the AI model. Experimental.",
           "scope": "application"
         },
-        "rubberduck.action.editCode.showInEditorContextMenu": {
+        "fifo.action.editCode.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.startChat.showInEditorContextMenu": {
+        "fifo.action.startChat.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.explainCode.showInEditorContextMenu": {
+        "fifo.action.explainCode.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.findBugs.showInEditorContextMenu": {
+        "fifo.action.findBugs.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.generateUnitTest.showInEditorContextMenu": {
+        "fifo.action.generateUnitTest.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.diagnoseErrors.showInEditorContextMenu": {
+        "fifo.action.diagnoseErrors.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.action.startCustomChat.showInEditorContextMenu": {
+        "fifo.action.startCustomChat.showInEditorContextMenu": {
           "type": "boolean",
           "default": true,
           "markdownDescription": "Show this action in the editor context menu, when you right-click on the code.",
           "scope": "application"
         },
-        "rubberduck.logger.level": {
+        "fifo.logger.level": {
           "type": "string",
           "default": "info",
           "enum": [
@@ -210,22 +211,22 @@
             "Only show warnings and errors",
             "Only show errors"
           ],
-          "markdownDescription": "Specify the verbosity of logs that will appear in 'Rubberduck: Show Logs'.",
+          "markdownDescription": "Specify the verbosity of logs that will appear in 'FIFOCoPilot: Show Logs'.",
           "scope": "application"
         },
-        "rubberduck.openAI.surfacePromptForPlus": {
+        "fifo.openAI.surfacePromptForPlus": {
           "type": "boolean",
           "default": false,
           "markdownDescription": "Enable UI to surface the prompt text to use with OpenAI plus web chat",
           "scope": "application"
         },
-        "rubberduck.openAI.baseUrl": {
+        "fifo.openAI.baseUrl": {
           "type": "string",
           "default": "https://api.openai.com/v1/",
           "markdownDescription": "Specify the URL to the OpenAI API. If you are using a proxy, you can set it here.",
           "scope": "application"
         },
-        "rubberduck.model": {
+        "fifo.model": {
           "type": "string",
           "default": "gpt-3.5-turbo-0125",
           "enum": [
@@ -259,32 +260,32 @@
     },
     "keybindings": [
       {
-        "command": "rubberduck.startChat",
+        "command": "fifo.startChat",
         "when": "isMac",
         "key": "Ctrl+Cmd+c"
       },
       {
-        "command": "rubberduck.startChat",
+        "command": "fifo.startChat",
         "when": "!isMac",
         "key": "Ctrl+Alt+c"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "fifo.editCode",
         "when": "isMac",
         "key": "Ctrl+Cmd+e"
       },
       {
-        "command": "rubberduck.editCode",
+        "command": "fifo.editCode",
         "when": "!isMac",
         "key": "Ctrl+Alt+e"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "fifo.generateCode",
         "when": "isMac",
         "key": "Ctrl+Cmd+g"
       },
       {
-        "command": "rubberduck.generateCode",
+        "command": "fifo.generateCode",
         "when": "!isMac",
         "key": "Ctrl+Alt+g"
       }
@@ -292,94 +293,94 @@
     "menus": {
       "view/title": [
         {
-          "command": "rubberduck.startChat",
-          "when": "view == rubberduck.chat",
+          "command": "fifo.startChat",
+          "when": "view == fifo.chat",
           "group": "navigation@1"
         },
         {
-          "command": "rubberduck.editCode",
-          "when": "view == rubberduck.chat",
+          "command": "fifo.editCode",
+          "when": "view == fifo.chat",
           "group": "navigation@2"
         },
         {
-          "command": "rubberduck.generateCode",
-          "when": "view == rubberduck.chat",
+          "command": "fifo.generateCode",
+          "when": "view == fifo.chat",
           "group": "navigation@3"
         },
         {
-          "command": "rubberduck.startCustomChat",
-          "when": "view == rubberduck.chat",
+          "command": "fifo.startCustomChat",
+          "when": "view == fifo.chat",
           "group": "navigation@6"
         },
         {
-          "command": "rubberduck.getStarted",
-          "when": "view == rubberduck.chat",
+          "command": "fifo.getStarted",
+          "when": "view == fifo.chat",
           "group": "navigation@9"
         }
       ],
       "touchBar": [
         {
-          "command": "rubberduck.touchBar.startChat",
-          "group": "rubberduck"
+          "command": "fifo.touchBar.startChat",
+          "group": "fifo"
         }
       ],
       "commandPalette": [
         {
-          "command": "rubberduck.touchBar.startChat",
+          "command": "fifo.touchBar.startChat",
           "when": "false"
         }
       ],
       "editor/context": [
         {
-          "command": "rubberduck.startChat",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.startChat.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.startChat",
+          "group": "fifo",
+          "when": "config.fifo.action.startChat.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.editCode",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.editCode.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.editCode",
+          "group": "fifo",
+          "when": "config.fifo.action.editCode.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.explainCode",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.explainCode.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.explainCode",
+          "group": "fifo",
+          "when": "config.fifo.action.explainCode.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.findBugs",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.findBugs.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.findBugs",
+          "group": "fifo",
+          "when": "config.fifo.action.findBugs.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.generateUnitTest",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.generateUnitTest.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.generateUnitTest",
+          "group": "fifo",
+          "when": "config.fifo.action.generateUnitTest.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.diagnoseErrors",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.diagnoseErrors.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.diagnoseErrors",
+          "group": "fifo",
+          "when": "config.fifo.action.diagnoseErrors.showInEditorContextMenu && editorHasSelection"
         },
         {
-          "command": "rubberduck.startCustomChat",
-          "group": "rubberduck",
-          "when": "config.rubberduck.action.startCustomChat.showInEditorContextMenu && editorHasSelection"
+          "command": "fifo.startCustomChat",
+          "group": "fifo",
+          "when": "config.fifo.action.startCustomChat.showInEditorContextMenu && editorHasSelection"
         }
       ]
     },
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "rubberduck",
-          "title": "Rubberduck",
+          "id": "fifo",
+          "title": "FIFOCoPilot",
           "icon": "media/sidebar-icon.svg"
         }
       ]
     },
     "views": {
-      "rubberduck": [
+      "fifo": [
         {
-          "id": "rubberduck.chat",
+          "id": "fifo.chat",
           "name": "Chat",
           "type": "webview"
         }
@@ -387,14 +388,14 @@
     },
     "walkthroughs": [
       {
-        "id": "rubberduck",
-        "title": "Rubberduck",
+        "id": "fifo",
+        "title": "FIFOCoPilot",
         "description": "Your AI Chat Assistant in Visual Studio Code",
         "steps": [
           {
             "id": "setup",
-            "title": "Setup Rubberduck",
-            "description": "[Enter your OpenAI API key](command:rubberduck.enterOpenAIApiKey) to get started.",
+            "title": "Setup FIFOCoPilot",
+            "description": "[Enter your OpenAI API key](command:fifo.enterOpenAIApiKey) to get started.",
             "media": {
               "markdown": "walkthrough/setup.md"
             }
@@ -402,7 +403,7 @@
           {
             "id": "chat",
             "title": "AI Chat",
-            "description": "Chat with Rubberduck about your code and software development topics.",
+            "description": "Chat with FIFOCoPilot about your code and software development topics.",
             "media": {
               "markdown": "walkthrough/chat.md"
             }
@@ -410,7 +411,7 @@
           {
             "id": "generate-code",
             "title": "Generate Code",
-            "description": "Generate code by instructing Rubberduck.",
+            "description": "Generate code by instructing FIFOCoPilot.",
             "media": {
               "markdown": "walkthrough/generate-code.md"
             }
@@ -418,7 +419,7 @@
           {
             "id": "edit-code",
             "title": "Edit Code",
-            "description": "Change the selected code by instructing Rubberduck to create an edit.",
+            "description": "Change the selected code by instructing FIFOCoPilot to create an edit.",
             "media": {
               "markdown": "walkthrough/edit-code.md"
             }
@@ -432,17 +433,17 @@
             }
           },
           {
-            "id": "rubberduck-templates",
-            "title": "Rubberduck Templates",
+            "id": "fifo-templates",
+            "title": "FIFOCoPilot Templates",
             "description": "Craft your own chat templates!",
             "media": {
-              "markdown": "walkthrough/rubberduck-templates.md"
+              "markdown": "walkthrough/fifo-templates.md"
             }
           },
           {
             "id": "tips-and-tricks",
             "title": "Tips and Tricks",
-            "description": "How to get the most out of Rubberduck.",
+            "description": "How to get the most out of FIFOCoPilot.",
             "media": {
               "markdown": "walkthrough/tips-and-tricks.md"
             }
@@ -450,7 +451,7 @@
           {
             "id": "project",
             "title": "Project",
-            "description": "Learn more about the Rubberduck open source project.",
+            "description": "Learn more about the FIFOCoPilot open source project.",
             "media": {
               "markdown": "walkthrough/project.md"
             }

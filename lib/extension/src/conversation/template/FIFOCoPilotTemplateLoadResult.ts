@@ -1,11 +1,11 @@
 import * as vscode from "vscode";
-import { RubberduckTemplate } from "./RubberduckTemplate";
+import { FIFOCoPilotTemplate } from "./FIFOCoPilotTemplate";
 
-export type RubberduckTemplateLoadResult =
+export type FIFOCoPilotTemplateLoadResult =
   | {
       type: "success";
       file: vscode.Uri;
-      template: RubberduckTemplate;
+      template: FIFOCoPilotTemplate;
     }
   | {
       type: "error";

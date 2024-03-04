@@ -1,4 +1,4 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@fifo/common";
 import React, { useState } from "react";
 import { ChatInput } from "./ChatInput";
 import { ErrorMessage } from "./ErrorMessage";

@@ -1,4 +1,4 @@
-import { util, webviewApi } from "@rubberduck/common";
+import { util, webviewApi } from "@fifo/common";
 import * as vscode from "vscode";
 import { AIClient } from "../ai/AIClient";
 import { Conversation } from "../conversation/Conversation";
@@ -62,7 +62,7 @@ export class ChatController {
   }
 
   async showChatPanel() {
-    await vscode.commands.executeCommand("rubberduck.chat.focus");
+    await vscode.commands.executeCommand("fifo.chat.focus");
   }
 
   async receivePanelMessage(rawMessage: unknown) {
@@ -71,7 +71,7 @@ export class ChatController {
 
     switch (type) {
       case "enterOpenAIApiKey": {
-        await vscode.commands.executeCommand("rubberduck.enterOpenAIApiKey");
+        await vscode.commands.executeCommand("fifo.enterOpenAIApiKey");
         break;
       }
       case "clickCollapsedConversation": {

@@ -1,4 +1,4 @@
-import { webviewApi } from "@rubberduck/common";
+import { webviewApi } from "@fifo/common";
 import { vscodeApi } from "./VsCodeApi";
 
 let state: webviewApi.PanelState = undefined;

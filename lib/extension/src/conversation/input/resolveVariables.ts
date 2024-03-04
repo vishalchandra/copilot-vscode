@@ -1,5 +1,5 @@
-import { webviewApi } from "@rubberduck/common";
-import { Variable } from "../template/RubberduckTemplate";
+import { webviewApi } from "@fifo/common";
+import { Variable } from "../template/FIFOCoPilotTemplate";
 import { resolveVariable } from "./resolveVariable";
 import { validateVariable } from "./validateVariable";
 
